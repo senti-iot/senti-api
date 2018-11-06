@@ -3,7 +3,7 @@ const create = require('apisauce').create
 var express = require('express')
 var router = express.Router()
 
-const weatherAPI = create({
+const api = create({
 	baseURL: `https://api.darksky.net/forecast/${process.env.WEATHER_API}/`,
 	timeout: 30000,
 	headers: {
@@ -15,15 +15,26 @@ const weatherAPI = create({
 
 // proxy weather from Dark Sky API
 const getWeather = async (date, lat, long, lang) => {
-	let result = await weatherAPI.get(`${lat},${long},${date}?lang=${lang}&exclude=alerts,flags&units=si`).then((rs) => rs, (rs) => rs)
-	return result.data
+	let response
+	try {
+		response = await api.get(`${lat},${long},${date}?lang=${lang}&exclude=alerts,flags&units=si`).then((rs) => rs, (rs) => rs)
+	} catch (error) {
+		console.error(error)
+	}
+
+	// check response	
+	if (response.ok && response.status == 200) {
+		console.log('API weather call returned', response.status)
+		return response.data
+	} else {
+		console.log('API Error:', response.problem)
+		return null
+	}
 }
 
 /* GET weather */
 router.get('/:date/:lat/:long/:lang', async (req, res, next) => {
 	let result
-	// console.log(req.params.date, req.params.lat, req.params.long, req.params.lang)
-	console.log('API weather call received!')
 	result = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
 	res.send(JSON.stringify(result))
 })
@@ -34,7 +45,3 @@ router.get('/', (req, res, next) => {
 })
 
 module.exports = router
-
-// https://api.senti.cloud/weather/2018-05-11T00:00:00/57.0488/9.9217
-// SENTI_API_PORT = 3001
-// WEATHER_API = ae02f869f759e8981632e60a5739ca39
