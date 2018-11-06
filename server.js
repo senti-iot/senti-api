@@ -1,25 +1,35 @@
 #!/usr/bin/env nodejs
-var dotenv = require('dotenv').load()
+const dotenv = require('dotenv').load()
 const express = require('express')
-var helmet = require('helmet')
+// const cors = require('cors')
+const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const app = express()
+
+// API imports
+const indexRouter = require('./api/index')
+const weatherRouter = require('./api/weather')
 
 
 app.use(helmet())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+// app.use(cors())
 // app.set('json')
 
 
-// API routes
+// API routes (endpoints)
 // TODO: Move to route files
 
-app.get('/', (req, res, next) => {
-	res.end('Senti.Cloud API ... There is absolutely nothing to see here ... ')
-	console.log('API root call received!')
-})
+// Index route
+// app.get('/', (req, res, next) => {
+// 	res.end('Senti.Cloud API ... There is absolutely nothing to see here ... ')
+// 	console.log('API root call received!')
+// })
+
+app.use('/', indexRouter)
+app.use('/weather', weatherRouter)
 
 
 //---Start the express server---------------------------------------------------
