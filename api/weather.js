@@ -6,11 +6,11 @@ var router = express.Router()
 const weatherAPI = create({
 	baseURL: `https://api.darksky.net/forecast/${process.env.WEATHER_API}/`,
 	timeout: 30000,
-	headers: {
-		'Accept': 'application/json',
-		'Content-Type': 'application/json',
-		'Service': 'senti-weather-api'
-	}
+	// headers: {
+	// 	'Accept': 'application/json',
+	// 	'Content-Type': 'application/json',
+	// 	'Service': 'senti-weather-api'
+	// }
 })
 
 // proxy weather from Dark Sky API
@@ -30,7 +30,9 @@ router.get('/:date/:lat/:long', async (req, res, next) => {
 
 router.get('/', (req, res, next) => {
 	res.send('The weather looks great ... ')
-	console.log('API weather call received!');
+	console.log('API weather call received!')
 })
 
 module.exports = router
+
+// https://api.senti.cloud/weather/2018-05-11T00:00:00/57/9.9
