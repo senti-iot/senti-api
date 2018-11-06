@@ -9,7 +9,7 @@ const weatherAPI = create({
 	headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json',
-		// 'Service': 'senti-weather-api'
+		'Service': 'senti-weather-api'
 	}
 })
 
