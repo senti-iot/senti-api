@@ -35,4 +35,4 @@ router.get('/', (req, res, next) => {
 
 module.exports = router
 
-// https://api.senti.cloud/weather/2018-05-11T00:00:00/57/9.9
+// https://api.senti.cloud/weather/2018-05-11T00:00:00/57.0488/9.9217
