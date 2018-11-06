@@ -36,3 +36,5 @@ router.get('/', (req, res, next) => {
 module.exports = router
 
 // https://api.senti.cloud/weather/2018-05-11T00:00:00/57.0488/9.9217
+// SENTI_API_PORT = 3001
+// WEATHER_API = ae02f869f759e8981632e60a5739ca39
