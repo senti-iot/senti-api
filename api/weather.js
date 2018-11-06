@@ -9,13 +9,13 @@ const weatherAPI = create({
 	headers: {
 		'Accept': 'application/json',
 		'Content-Type': 'application/json',
-		'Service': 'senti-weather-api'
+		// 'Service': 'senti-weather-api'
 	}
 })
 
 // proxy weather from Dark Sky API
 const getWeather = async (date, lat, long, lang) => {
-	let result = await weatherAPI.get(`${lat},${long},${date},${lang}`).then((rs) => rs, rs => console.log(rs))
+	let result = await weatherAPI.get(`${lat},${long},${date}?lang=${lang}`).then((rs) => rs, rs => console.log(rs))
 	// console.log(result.data)
 	return result.data
 }
