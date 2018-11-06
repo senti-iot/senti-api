@@ -15,7 +15,7 @@ const weatherAPI = create({
 
 // proxy weather from Dark Sky API
 const getWeather = async (date, lat, long, lang) => {
-	let result = await weatherAPI.get(`${lat},${long},${date}?lang=${lang}`).then((rs) => rs, rs => console.log(rs))
+	let result = await weatherAPI.get(`${lat},${long},${date}?lang=${lang}&units=si`).then((rs) => rs, rs => console.log(rs))
 	// console.log(result.data)
 	return result.data
 }
