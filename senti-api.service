@@ -6,7 +6,7 @@ Documentation=https://github.com/senti-platform/senti-api/blob/master/README.md
 
 [Service]
 WorkingDirectory=/srv/nodejs/senti/senti-api
-ExecStart=/usr/local/bin/node server.js
+ExecStart=/usr/bin/node server.js
 Type=simple
 Restart=always
 # RestartSec=1
