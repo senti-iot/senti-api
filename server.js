@@ -1,3 +1,4 @@
+#!/usr/bin/env nodejs
 var dotenv = require('dotenv').load()
 const express = require('express')
 var helmet = require('helmet')
