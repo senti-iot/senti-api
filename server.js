@@ -25,7 +25,7 @@ app.get('/', (req, res, next) => {
 
 const port = process.env.SENTI_API_PORT || 3001
 
-const startAPIServer = async () => {
+const startAPIServer = () => {
 	app.listen(port, () => {
 		console.log('Senti.Cloud API server started on ' + port)
 	}).on('error', (err) => {

@@ -1,0 +1,19 @@
+[Unit]
+# senti-api.service
+Description=Senti API
+Documentation=https://github.com/senti-platform/senti-api/blob/master/README.md
+# After=network.target
+
+[Service]
+WorkingDirectory=/srv/nodejs/senti/senti-api
+ExecStart=/usr/local/bin/node server.js
+Type=simple
+Restart=always
+# RestartSec=1
+StartLimitInterval=0
+User=root
+Group=root
+# KillSignal=SIGQUIT
+
+[Install]
+WantedBy=basic.target
