@@ -15,16 +15,16 @@ const weatherAPI = create({
 
 // proxy weather from Dark Sky API
 const getWeather = async (date, lat, long, lang) => {
-	let result = await weatherAPI.get(`${lat},${long},${date}?lang=${lang}`).then((rs) => rs, rs => console.log(rs))
-	// console.log(result.data)
+	let result = await weatherAPI.get(`${lat},${long},${date}?lang=${lang}&exclude=alerts,flags&units=si`).then((rs) => rs, (rs) => rs)
 	return result.data
 }
 
 /* GET weather */
 router.get('/:date/:lat/:long/:lang', async (req, res, next) => {
-	console.log(req.params.date, req.params.lat, req.params.long, req.params.lang)
-	let result = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
-	// console.log(result)
+	let result
+	// console.log(req.params.date, req.params.lat, req.params.long, req.params.lang)
+	console.log('API weather call received!')
+	result = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
 	res.send(JSON.stringify(result))
 })
 
