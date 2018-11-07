@@ -33,7 +33,8 @@ router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 	if (verifyAPIVersion(req.params.version)) {
 		let response
 		response = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
-		res.send(JSON.stringify(response))
+		// res.send(JSON.stringify(response))
+		res.json(response)
 	} else {
 		res.send(`API call to version ${req.params.version} not supported`)
 	}
