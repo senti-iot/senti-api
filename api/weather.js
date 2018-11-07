@@ -1,7 +1,8 @@
-var dotenv = require('dotenv').load()
+const dotenv = require('dotenv').load()
 const create = require('apisauce').create
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
+const verifyAPIVersion = require('../lib/verifyapiversion')
 
 const api = create({
 	baseURL: `https://api.darksky.net/forecast/${process.env.WEATHER_API}/`,
@@ -33,15 +34,20 @@ const getWeather = async (date, lat, long, lang) => {
 }
 
 /* GET weather */
-router.get('/:date/:lat/:long/:lang', async (req, res, next) => {
-	let result
-	result = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
-	res.send(JSON.stringify(result))
+// router.get('/:date/:lat/:long/:lang', async (req, res, next) => {
+router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
+	if (verifyAPIVersion(req.params.version)) {
+		let response
+		response = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
+		res.send(JSON.stringify(response))
+	} else {
+		res.send(`API call to version ${req.params.version} not supported`)
+	}
 })
 
 router.get('/', (req, res, next) => {
-	res.send('The weather looks great ... ')
-	console.log('API weather call received!')
+	res.send('The weather looks great from here ... ')
+	console.log('API /weather call received!')
 })
 
 module.exports = router

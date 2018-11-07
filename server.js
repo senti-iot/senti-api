@@ -3,12 +3,13 @@ const dotenv = require('dotenv').load()
 const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
-// const bodyParser = require('body-parser')
 const app = express()
 
-// API imports
+// API endpoint imports
 const indexRouter = require('./api/index')
 const weatherRouter = require('./api/weather')
+const apiVersionRouter = require('./api/apiversion')
+const templateRouter = require('./api/template')
 
 
 app.use(helmet())
@@ -19,15 +20,16 @@ app.use(cors())
 
 app.use('/', indexRouter)
 app.use('/weather', weatherRouter)
-
-
-//---Start the express server---------------------------------------------------
+app.use('/apiversion', apiVersionRouter)
+app.use('/template', templateRouter)
 
 const port = process.env.SENTI_API_PORT || 3001
 
+//---Start the express server---------------------------------------------------
+
 const startAPIServer = () => {
 	app.listen(port, () => {
-		console.log('Senti.Cloud API server started on ' + port)
+		console.log('Senti.Cloud API server started on port', port)
 	}).on('error', (err) => {
 		if (err.errno === 'EADDRINUSE') {
 			console.log('Server not started, port ' + port + ' is busy')
