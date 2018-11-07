@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const verifyAPIVersion = require('../lib/verifyapiversion')
 
-/* GET template */
+/* get template */
 router.get('/:version/', async (req, res, next) => {
 	if (verifyAPIVersion(req.params.version)) {
 		res.send(JSON.stringify('SentiAPI template'))

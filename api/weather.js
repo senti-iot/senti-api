@@ -6,14 +6,10 @@ const verifyAPIVersion = require('../lib/verifyapiversion')
 
 const api = create({
 	baseURL: `https://api.darksky.net/forecast/${process.env.WEATHER_API}/`,
-	timeout: 30000,
-	headers: {
-		'Accept': 'application/json',
-		'Content-Type': 'application/json'
-	}
+	timeout: 30000
 })
 
-// proxy weather from Dark Sky API
+// DarkSky weather API proxy
 const getWeather = async (date, lat, long, lang) => {
 	let response
 	try {
@@ -32,8 +28,7 @@ const getWeather = async (date, lat, long, lang) => {
 	}
 }
 
-/* GET weather */
-// router.get('/:date/:lat/:long/:lang', async (req, res, next) => {
+/* get weather */
 router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 	if (verifyAPIVersion(req.params.version)) {
 		let response
