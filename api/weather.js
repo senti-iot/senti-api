@@ -39,9 +39,4 @@ router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 	}
 })
 
-router.get('/', (req, res, next) => {
-	res.send('The weather looks great from here ... ')
-	console.log('API /weather call received!')
-})
-
 module.exports = router
