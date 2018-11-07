@@ -12,10 +12,9 @@ const apiVersions = {
 /* GET template */
 router.get('/:api', async (req, res, next) => {
 	let api = req.params.api
-	console.log(api)
-	console.log(apiVersions[api])
 	let response = apiVersions[api]
 	res.send(response)
+	console.log('API apiversion call returned', api, response)
 })
 
 module.exports = router
