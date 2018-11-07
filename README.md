@@ -7,3 +7,6 @@ SentiAPI support access to your own Senti IoT device data or paid access to Sent
 SentiAPI also works as a consolidated proxy for other API endpoints that Senti and Senti.Cloud use for its services.
 
 API version: 1.0
+
+## Documentation
+
