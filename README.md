@@ -9,5 +9,3 @@ SentiAPI also works as a consolidated proxy for other API endpoints that Senti a
 API version: 1.0
 
 ## Documentation
-
-
