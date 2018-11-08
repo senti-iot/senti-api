@@ -1,29 +1,23 @@
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').load()
 const create = require('apisauce').create
 const express = require('express')
 const router = express.Router()
 const verifyAPIVersion = require('../lib/verifyapiversion')
-
-dotenv.load()
 
 const api = create({
 	baseURL: `https://api.darksky.net/forecast/${process.env.WEATHER_API}/`,
 	timeout: 30000
 })
 
-const numRetry = 5
-
 // DarkSky weather API proxy
-const getWeatherRetry = async (date, lat, long, lang, n) => {
+const getWeather = async (date, lat, long, lang) => {
 	let response
-	try {
+	try {	
 		response = await api.get(`${lat},${long},${date}?lang=${lang}&exclude=alerts,flags&units=si`)
 	} catch (error) {
-		if (n === 1) {
-			console.error(error)
-		}
-		response = await getWeatherRetry(date, lat, long, lang, n - 1)
+		console.error(error)
 	}
+
 	// check response	
 	if (response.ok && response.status == 200) {
 		console.log('API/weather returned:', response.status)
@@ -38,7 +32,8 @@ const getWeatherRetry = async (date, lat, long, lang, n) => {
 router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 	if (verifyAPIVersion(req.params.version)) {
 		let response
-		response = await getWeatherRetry(req.params.date, req.params.lat, req.params.long, req.params.lang, numRetry)
+		response = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang)
+		// res.send(JSON.stringify(response))
 		res.json(response)
 	} else {
 		res.send(`API/weather version: ${req.params.version} not supported`)

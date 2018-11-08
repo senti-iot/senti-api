@@ -8,4 +8,24 @@ SentiAPI also works as a consolidated proxy for other API endpoints that Senti a
 
 API version: 1.0
 
-## Documentation
+# Documentation
+
+## API Version
+
+Query the latest version of the different API's. This is ideal to call in your initial configuration or other API configuration. 
+
+Always issue a call to this API before using a specific API if you want to use the latest version of the given API.
+
+#### Endpoint
+https://api.senti.cloud/apiversion/
+
+#### Example
+```js
+// returns the current version of the weather API
+https://api.senti.cloud/apiversion/weather
+```
+
+## Weather
+The weather API is a proxy for the DarkSky weather API and is for internal use in Senti.Cloud. 
+
+
