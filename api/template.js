@@ -5,9 +5,9 @@ const verifyAPIVersion = require('../lib/verifyapiversion')
 /* get template */
 router.get('/:version/', async (req, res, next) => {
 	if (verifyAPIVersion(req.params.version)) {
-		res.send(JSON.stringify('SentiAPI template'))
+		res.json('SentiAPI template')
 	} else {
-		res.send(`API call to version ${req.params.version} not supported`)
+		res.send(`API/template version: ${req.params.version} not supported`)
 	}
 })
 

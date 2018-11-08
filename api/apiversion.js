@@ -14,7 +14,7 @@ router.get('/:api', async (req, res, next) => {
 	let api = req.params.api
 	let response = apiVersions[api]
 	res.send(response)
-	console.log('API apiversion call returned', api, response)
+	console.log('API/apiversion returned', api, response)
 })
 
 module.exports = router

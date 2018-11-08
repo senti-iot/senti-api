@@ -20,10 +20,10 @@ const getWeather = async (date, lat, long, lang) => {
 
 	// check response	
 	if (response.ok && response.status == 200) {
-		console.log('API weather call returned', response.status)
+		console.log('API/weather returned:', response.status)
 		return response.data
 	} else {
-		console.log('API Error:', response.problem)
+		console.log('API/weather Error:', response.problem)
 		return null
 	}
 }
@@ -36,7 +36,7 @@ router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 		// res.send(JSON.stringify(response))
 		res.json(response)
 	} else {
-		res.send(`API call to version ${req.params.version} not supported`)
+		res.send(`API/weather version: ${req.params.version} not supported`)
 	}
 })
 

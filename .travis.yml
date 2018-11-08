@@ -12,7 +12,10 @@ deploy:
     skip_cleanup: true
     true: 
       branch: master
-  
+
+after_deploy:
+  - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh'"
+
 language: node_js
 node_js: 
   - stable
