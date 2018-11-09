@@ -40,7 +40,14 @@ router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 		response = await getWeatherRetry(req.params.date, req.params.lat, req.params.long, req.params.lang, numRetry)
 		res.json(response)
 	} else {
-		res.send(`API/weather version: ${req.params.version} not supported`)
+		// Version error or test next version
+		// response.headers.get('content-type').indexOf('javascript') === -1
+		// let h = 
+		if (req.params.version === 'v2') {
+			// console.log(req.headers)
+			res.json(req.headers)
+		}
+		// res.send(`API/weather version: ${req.params.version} not supported`)
 	}
 })
 
