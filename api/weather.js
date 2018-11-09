@@ -34,7 +34,6 @@ const getWeatherRetry = async (date, lat, long, lang, n) => {
 	}
 }
 
-/* get weather */
 router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 	if (verifyAPIVersion(req.params.version)) {
 		let response
