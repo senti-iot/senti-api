@@ -2,7 +2,7 @@
 
 
 ## Todo
-- Extended version validation for versions higher than v1 (1.0.0)
+- Extended version validation for versions higher than v1 (1.0.0) - use semver
 - Call logging (extended)
 - API Access key / token
 - JWT
