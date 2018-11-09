@@ -1,5 +1,12 @@
+# .travis.yml
 addons: 
   ssh_known_hosts: organa.webhouse.net
+install:
+- npm ci
+# keep the npm cache around to speed up installs
+cache:
+  directories:
+  - "$HOME/.npm"
 before_deploy: 
   - "openssl aes-256-cbc -K $encrypted_9ff15c749c3b_key -iv $encrypted_9ff15c749c3b_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d"
   - "eval \"$(ssh-agent -s)\""
