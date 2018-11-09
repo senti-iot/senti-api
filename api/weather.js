@@ -26,7 +26,7 @@ const getWeatherRetry = async (date, lat, long, lang, n) => {
 	}
 	// check response	
 	if (response.ok && response.status == 200) {
-		console.log('API/weather returned:', response.status)
+		console.log('API/weather returned:', response.status, Date())
 		return response.data
 	} else {
 		console.log('API/weather Error:', response.problem)

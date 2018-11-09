@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const apiVersion = 1
 
+// LTS API versions
 const apiVersions = {
 	"index": "1",
 	"weather": "1",

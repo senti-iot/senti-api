@@ -14,6 +14,9 @@ deploy:
       branch: master
 
 after_deploy:
+  - "echo Now running npm install on host"
+  - "npm install --prefix /srv/nodejs/senti/senti-api"
+  - "echo Now restarting API service"
   - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh'"
 
 language: node_js
