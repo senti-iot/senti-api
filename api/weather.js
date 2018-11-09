@@ -1,13 +1,13 @@
-const dotenv = require('dotenv')
+require('dotenv').load()
 const create = require('apisauce').create
 const express = require('express')
 const router = express.Router()
 const verifyAPIVersion = require('../lib/verifyapiversion')
-const decrypt = require('../lib/encryption').decrypt
+const authenticate = require('../lib/authenticate')
 
-dotenv.load()
+// dotenv.load()
 
-const { ENCRYPTION_KEY, WEATHER_API } = process.env
+const { WEATHER_API } = process.env
 
 const api = create({
 	baseURL: `https://api.darksky.net/forecast/${WEATHER_API}/`,
@@ -39,21 +39,24 @@ const getWeather = async (date, lat, long, lang, n) => {
 
 router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
 	let apiVersion = req.params.version
+	let authToken = req.headers.auth
+
 	if (verifyAPIVersion(apiVersion)) {
 		let response
 		response = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang, numRetry)
 		res.json(response)
 	} else {
 		// Version error or test next version
+		// res.send(`API/weather version: ${apiVersion} not supported`)
+		console.log(`API call to version ${apiVersion} not yet supported`)
 
 		if (apiVersion === 'v2') {
 
-			if (ENCRYPTION_KEY === decrypt(req.headers.auth)) {
+			if (authenticate(authToken)) {
 				console.log('Validated ... ')
-				res.json('Call validated ... Goodbye!')
+				res.json('Validated ... Goodbye!')
 			}
 		}
-		// res.send(`API/weather version: ${apiVersion} not supported`)
 	}
 })
 

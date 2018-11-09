@@ -1,6 +1,6 @@
 {
   "name": "senti-api",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "deprecated": false,
   "description": "Senti.Cloud API",
   "main": "server.js",
@@ -27,7 +27,6 @@
     "cors": "^2.8.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
     "find-config": "^1.0.0",
     "helmet": "^3.14.0"
   }
