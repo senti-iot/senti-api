@@ -30,7 +30,7 @@ const getWeather = async (date, lat, long, lang, n) => {
 	}
 	// check response	
 	if (response.ok && response.status == 200) {
-		console.log('API/weather returned:', response.status, Date())
+		console.log('API/weather:', response.status, Date())
 		return response.data
 	} else {
 		console.log('API/weather Error:', response.problem)
@@ -49,13 +49,13 @@ router.get(weatherRoute, async (req, res) => {
 	} else {
 		// Version error or test next version
 		// res.send(`API/weather version: ${apiVersion} not supported`)
-		console.log(`API call to version ${apiVersion} not yet supported`)
+		console.log(`API version ${apiVersion} not yet supported`)
 
 		if (apiVersion === 'v2') {
 
 			if (authenticate(authToken)) {
-				console.log('Validated ... ')
-				res.json('Validated ... Goodbye!')
+				console.log('API Access Authenticated!')
+				res.json('API Access Authenticated ... Goodbye!')
 			}
 		}
 	}
