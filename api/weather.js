@@ -8,6 +8,7 @@ const authenticate = require('../lib/authenticate')
 // dotenv.load()
 
 const { WEATHER_API } = process.env
+const weatherRoute = '/:version/:date/:lat/:long/:lang'
 
 const api = create({
 	baseURL: `https://api.darksky.net/forecast/${WEATHER_API}/`,
@@ -37,7 +38,7 @@ const getWeather = async (date, lat, long, lang, n) => {
 	}
 }
 
-router.get('/:version/:date/:lat/:long/:lang', async (req, res, next) => {
+router.get(weatherRoute, async (req, res) => {
 	let apiVersion = req.params.version
 	let authToken = req.headers.auth
 
