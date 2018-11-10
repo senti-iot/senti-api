@@ -5,8 +5,6 @@ const router = express.Router()
 const verifyAPIVersion = require('../lib/verifyapiversion')
 const authenticate = require('../lib/authenticate')
 
-// dotenv.load()
-
 const { WEATHER_API } = process.env
 const weatherRoute = '/:version/:date/:lat/:long/:lang'
 
