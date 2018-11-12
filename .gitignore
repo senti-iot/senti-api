@@ -66,3 +66,6 @@ typings/
 # vscode settings
 .vscode
 launch.json
+
+# .DS_Store
+.DS_Store
