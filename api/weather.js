@@ -2,8 +2,8 @@ require('dotenv').load()
 const create = require('apisauce').create
 const express = require('express')
 const router = express.Router()
-const verifyAPIVersion = require('../lib/verifyapiversion')
-const authenticate = require('../lib/authenticate')
+const verifyAPIVersion = require('senti-apicore').verifyapiversion
+const { authenticate } = require('senti-apicore')
 
 const { WEATHER_API } = process.env
 const weatherRoute = '/:version/:date/:lat/:long/:lang'
@@ -50,7 +50,7 @@ router.get(weatherRoute, async (req, res) => {
 		console.log(`API version ${apiVersion} not yet supported`)
 
 		if (apiVersion === 'v2') {
-
+			// authToken ? console.log(authToken) : null
 			if (authenticate(authToken)) {
 				console.log('API Access Authenticated!')
 				res.json('API Access Authenticated ... Goodbye!')

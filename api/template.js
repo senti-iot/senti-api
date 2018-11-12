@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const verifyAPIVersion = require('../lib/verifyapiversion')
+const verifyAPIVersion = require('senti-apicore').verifyapiversion
 
 /* get template */
 router.get('/:version/', async (req, res, next) => {
