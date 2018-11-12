@@ -9,14 +9,14 @@ router.get('/:version/', async (req, res, next) => {
 	let authToken = req.headers.auth
 	if (verifyAPIVersion(apiVersion)) {
 		if (authenticate(authToken)) {
-			res.json('SentiAPI template')
-			console.log('API Access Authenticated!')
+			res.json('API/template Access Authenticated!')
+			console.log('API/template Access Authenticated!')
 		} else {
 			res.json('Unauthorized Access!')
 			console.log('Unauthorized Access!')
 		}
 	} else {
-		res.send(`API/template version: ${req.params.version} not supported`)
+		res.send(`API/template version: ${apiVersion} not supported`)
 	}
 })
 
