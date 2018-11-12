@@ -31,8 +31,8 @@ const getWeather = async (date, lat, long, lang, n) => {
 		console.log('API/weather:', response.status, Date())
 		return response.data
 	} else {
-		console.log('API/weather Error:', response.problem)
-		return null
+		console.log('API/weather Error:', response.problem, Date())
+		return 403
 	}
 }
 
