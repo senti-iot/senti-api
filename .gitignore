@@ -60,9 +60,6 @@ typings/
 # next.js build output
 .next
 
-# travis deployment output
-.dpl
-
 # vscode settings
 .vscode
 launch.json
