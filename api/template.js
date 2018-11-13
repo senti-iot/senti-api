@@ -16,6 +16,7 @@ router.get('/:version/', async (req, res, next) => {
 			console.log('Unauthorized Access!')
 		}
 	} else {
+		console.log(`API/template version: ${apiVersion} not supported`)
 		res.send(`API/template version: ${apiVersion} not supported`)
 	}
 })

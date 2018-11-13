@@ -11,7 +11,7 @@ const weatherRouter = require('./api/weather')
 const apiVersionRouter = require('./api/apiversion')
 const templateRouter = require('./api/template')
 
-const port = process.env.SENTI_API_PORT || 3001
+const port = process.env.NODE_PORT || 3001
 
 app.use(helmet())
 app.use(express.json())
