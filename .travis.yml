@@ -31,7 +31,7 @@ deploy:
 after_deploy:
   - "echo Deploying branch: $TRAVIS_BRANCH"
   #- "ssh deploy@organa.webhouse.net 'sudo npm install --prefix /srv/nodejs/senti/senti-api'"
-  - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh $TRAVIS_BRANCH'"
+  - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh "$TRAVIS_BRANCH" '"
 
 language: node_js
 node_js: 
