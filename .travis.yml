@@ -16,7 +16,7 @@ before_deploy:
   - "ssh-add /tmp/deploy_rsa"
 deploy:
   - provider: script # DEV
-    script: bash deploy.sh dev $TRAVIS_BUILD_DIR
+    script: bash scripts/deploy.sh dev $TRAVIS_BUILD_DIR
     skip_cleanup: true
     on:
       branch: dev
@@ -24,7 +24,7 @@ deploy:
     # true: 
     #   branch: dev
   - provider: script # MASTER
-    script: bash deploy.sh master $TRAVIS_BUILD_DIR
+    script: bash scripts/deploy.sh master $TRAVIS_BUILD_DIR
     skip_cleanup: true
     on:
       branch: master
