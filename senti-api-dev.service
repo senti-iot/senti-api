@@ -7,6 +7,7 @@ Documentation=https://github.com/senti-platform/senti-api/blob/master/README.md
 [Service]
 WorkingDirectory=/srv/nodejs/senti/senti-api-dev
 ExecStart=/usr/bin/node server.js
+Environment=NODE_PORT=3002
 Type=simple
 Restart=always
 # RestartSec=1
