@@ -22,9 +22,9 @@ deploy:
       branch: master
   - 
     provider: script
-    script: "rsync -r --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api-dev"
+    script: bash deploy.sh dev $TRAVIS_BUILD_DIR
+    # script: "rsync -r --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api-dev"
     #script: "rsync -a --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api-dev"
-    script: "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh dev'"
     skip_cleanup: true
     true: 
       branch: dev
