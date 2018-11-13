@@ -19,15 +19,26 @@ deploy:
     provider: script
     script: bash deploy.sh master $TRAVIS_BUILD_DIR
     skip_cleanup: true
-    true: 
-      branch: master
+    on:
+      repo: senti-platform/senti-api
+      branches:    # ← new!
+        only:      # ← new!
+          - master # ← new!
+#    true: 
+#      branch: master
   - 
     provider: script
     script: bash deploy.sh dev $TRAVIS_BUILD_DIR
     skip_cleanup: true
-    true: 
-      branch: dev
+    on:
+      repo: senti-platform/senti-api
+      branches:    # ← new!
+        only:      # ← new!
+          - dev # ← new!
+#    true: 
+#      branch: dev
+
 notifications: 
   email: true
-  slack: "webhouseteam:82qu1PX5R5wkYNCW5x6fVlhu"
-  
+  # slack: "webhouseteam:82qu1PX5R5wkYNCW5x6fVlhu"
+  slack: $SLACK_KEY
