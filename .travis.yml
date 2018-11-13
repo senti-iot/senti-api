@@ -20,13 +20,22 @@ deploy:
     skip_cleanup: true
     true: 
       branch: master
+  - 
+    provider: script
+    script: "rsync -r --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api-dev"
+    #script: "rsync -a --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api-dev"
+    skip_cleanup: true
+    true: 
+      branch: dev
 
 after_deploy:
-  - "echo Now running npm install on host"
-  - "ssh deploy@organa.webhouse.net 'sudo npm install --prefix /srv/nodejs/senti/senti-api'"
-  - "echo Now restarting API service"
-  - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh'"
-
+  - "echo Deploying branch: $TRAVIS_BRANCH"
+  #- "echo Now running npm install on host"
+  #- "ssh deploy@organa.webhouse.net 'sudo npm install --prefix /srv/nodejs/senti/senti-api'"
+  #- "echo Now restarting API service"
+  - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh $TRAVIS_BRANCH'"
+# "$TRAVIS_BRANCH"
+# "$NPM_TOKEN"
 language: node_js
 node_js: 
   - stable
