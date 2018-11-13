@@ -9,6 +9,7 @@ if [[ "$1" == "master" ]]; then
 	ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh master'
 	echo
 	echo Deployment to production & restart done!
+	exit 0
 fi 
 
 if [[ "$1" == "dev" ]]; then 
@@ -20,4 +21,5 @@ if [[ "$1" == "dev" ]]; then
 	ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh dev'
 	echo
 	echo Deployment to dev & restart done!
+	exit 0
 fi
