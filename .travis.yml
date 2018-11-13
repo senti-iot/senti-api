@@ -23,15 +23,15 @@ deploy:
       condition: $TRAVIS_BRANCH = dev
     # true: 
     #   branch: dev
-  # - provider: script # MASTER
-  #   script: bash deploy.sh master $TRAVIS_BUILD_DIR
-  #   skip_cleanup: true
-  #   on:
-  #     branch: master
-  #     condition: $TRAVIS_BRANCH = master
+  - provider: script # MASTER
+    script: bash deploy.sh master $TRAVIS_BUILD_DIR
+    skip_cleanup: true
+    on:
+      branch: master
+      condition: $TRAVIS_BRANCH = master
     # true: 
     #   branch: master
 notifications: 
-  email: true
+  # email: true
   slack: "webhouseteam:82qu1PX5R5wkYNCW5x6fVlhu"
-  slack: "$SLACK_KEY"
+  # slack: "$SLACK_KEY"
