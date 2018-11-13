@@ -30,5 +30,8 @@
     "find-config": "^1.0.0",
     "helmet": "^3.14.0",
     "senti-apicore": "0.0.8"
+  },
+  "devDependencies": {
+    "eslint-plugin-security": "^1.4.0"
   }
 }
