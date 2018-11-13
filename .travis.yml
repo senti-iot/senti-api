@@ -14,31 +14,23 @@ before_deploy:
   - "eval \"$(ssh-agent -s)\""
   - "chmod 600 /tmp/deploy_rsa"
   - "ssh-add /tmp/deploy_rsa"
-deploy: 
-  - 
-    provider: script
+deploy:
+  - provider: script
     script: bash deploy.sh master $TRAVIS_BUILD_DIR
     skip_cleanup: true
     on:
-      repo: senti-platform/senti-api
-      branches:    # ← new!
-        only:      # ← new!
-          - master # ← new!
+      branch: master
 #    true: 
 #      branch: master
-  - 
-    provider: script
+  - provider: script
     script: bash deploy.sh dev $TRAVIS_BUILD_DIR
     skip_cleanup: true
     on:
-      repo: senti-platform/senti-api
-      branches:    # ← new!
-        only:      # ← new!
-          - dev # ← new!
+      branch: dev
 #    true: 
 #      branch: dev
 
 notifications: 
   email: true
   # slack: "webhouseteam:82qu1PX5R5wkYNCW5x6fVlhu"
-  slack: $SLACK_KEY
+  slack: "$SLACK_KEY"
