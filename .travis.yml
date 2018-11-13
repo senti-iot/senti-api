@@ -20,7 +20,7 @@ deploy:
     skip_cleanup: true
     on:
       branch: dev
-      condition: $TRAVIS_BRANCH = dev
+      # condition: $TRAVIS_BRANCH = dev
     # true: 
     #   branch: dev
   - provider: script # MASTER
@@ -28,10 +28,14 @@ deploy:
     skip_cleanup: true
     on:
       branch: master
-      condition: $TRAVIS_BRANCH = master
+      # condition: $TRAVIS_BRANCH = master
     # true: 
     #   branch: master
-notifications: 
-  # email: true
+notifications:
+  email:
+    recipients:
+      - cb@webhouse.dk
+      #- other@example.com
+    on_success: never # default: change
+    on_failure: always # default: always
   slack: "webhouseteam:82qu1PX5R5wkYNCW5x6fVlhu"
-  # slack: "$SLACK_KEY"
