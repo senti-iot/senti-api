@@ -18,17 +18,17 @@ deploy:
   - provider: script
     script: bash deploy.sh master $TRAVIS_BUILD_DIR
     skip_cleanup: true
-    on:
+    # on:
+      # branch: master
+    true: 
       branch: master
-#    true: 
-#      branch: master
   - provider: script
     script: bash deploy.sh dev $TRAVIS_BUILD_DIR
     skip_cleanup: true
-    on:
+    # on:
+      # branch: dev
+    true: 
       branch: dev
-#    true: 
-#      branch: dev
 
 notifications: 
   email: true
