@@ -6,6 +6,7 @@ const router = express.Router()
 const apiVersions = {
 	"index": "1",
 	"weather": "1",
+	"holidays": "1",
 	"template": "2",
 }
 
