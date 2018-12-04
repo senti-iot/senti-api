@@ -22,10 +22,13 @@ const eachDay = (startDate, stopDate) => {
 }
 
 const getByDate = (date, data, year) => {
-	let filteredElements = data.filter((element) => {
+	let filteredElements = []
+	filteredElements = data.filter((element) => {
 		if (element.date === date) {
-			element.date = `${year}-${element.date}`
-			return element
+			return {
+				...element,
+				date: `${year}-${element.date}`
+			}
 		}
 	})
 	return filteredElements
@@ -45,10 +48,7 @@ const getAnnualEvents = async (startDate, endDate, lang) => {
 	let destinationArray = []
 	for (let i in dates) {
 		destinationArray.push(...getByDate(dates[i], days, year))
-		// console.log(i, ...getByDate(dates[i], days, year))
 	}
-	// console.log(days)
-	// console.log(destinationArray)
 	console.log('API/annual:', '200', Date())
 	return JSON.stringify(destinationArray)
 }
