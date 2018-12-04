@@ -1,6 +1,6 @@
 {
   "name": "senti-api",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "deprecated": false,
   "description": "Senti.Cloud API",
   "main": "server.js",
@@ -33,8 +33,8 @@
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "find-config": "^1.0.0",
-    "helmet": "^3.14.0",
-    "senti-apicore": "0.0.8"
+    "helmet": "^3.15.0",
+    "senti-apicore": "0.0.11"
   },
   "devDependencies": {
     "eslint-plugin-security": "^1.4.0"
