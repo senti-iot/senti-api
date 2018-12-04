@@ -50,7 +50,7 @@ const getAnnualEvents = async (startDate, endDate, lang) => {
 		destinationArray.push(...getByDate(dates[i], days, year))
 	}
 	console.log('API/annual:', '200', Date())
-	return JSON.stringify(destinationArray)
+	return destinationArray
 }
 
 router.get(annualRoute, async (req, res) => {
