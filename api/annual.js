@@ -7,6 +7,8 @@ const { authenticate } = require('senti-apicore')
 var moment = require('moment')
 
 const annualRoute = '/:version/:startdate/:enddate/:lang'
+const DAYS_EN = require('../lib/days.en.json')
+const DAYS_DA = require('../lib/days.da.json')
 
 const eachDay = (startDate, stopDate) => {
 	var dates = []
@@ -38,12 +40,15 @@ https://api.senti.cloud/annual/v1/2018-01-01/2018-12-31/en
  */
 const getAnnualEvents = async (startDate, endDate, lang) => {
 	let year = startDate.substring(0, 4)
-	const days = lang === 'en' ? require('../lib/days.en.json') : require('../lib/days.da.json')
+	const days = lang === 'en' ? DAYS_EN : DAYS_DA
 	let dates = eachDay(startDate, endDate)
 	let destinationArray = []
 	for (let i in dates) {
 		destinationArray.push(...getByDate(dates[i], days, year))
+		// console.log(i, ...getByDate(dates[i], days, year))
 	}
+	// console.log(days)
+	// console.log(destinationArray)
 	console.log('API/annual:', '200', Date())
 	return JSON.stringify(destinationArray)
 }
@@ -58,7 +63,7 @@ router.get(annualRoute, async (req, res) => {
 				let response
 				response = await getAnnualEvents(req.params.startdate, req.params.enddate, req.params.lang)
 				res.json(response)
-				console.log('API Access Authenticated!')
+				console.log('API Access Authenticated!')				
 			} else {
 				res.json(403)
 				console.log('API Unauthorized Access!')
