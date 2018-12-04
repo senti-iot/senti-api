@@ -41,19 +41,29 @@ router.get(weatherRoute, async (req, res) => {
 	let authToken = req.headers.auth
 
 	if (verifyAPIVersion(apiVersion)) {
-		let response
-		response = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang, numRetry)
-		res.json(response)
+		if (authToken) {
+			if (authenticate(authToken)) {
+				let response
+				response = await getWeather(req.params.date, req.params.lat, req.params.long, req.params.lang, numRetry)
+				res.json(response)
+				console.log('API Access Authenticated!')
+			} else {
+				res.json(403)
+				console.log('API Unauthorized Access!')
+			}
+		} else {
+			res.json(403)
+			console.log('API Unauthorized Access! Missing token')
+		}
 	} else {
 		// Version error or test next version
 		// res.send(`API/weather version: ${apiVersion} not supported`)
 		console.log(`API version ${apiVersion} not yet supported`)
 
 		if (apiVersion === 'v2') {
-			// authToken ? console.log(authToken) : null
 			if (authenticate(authToken)) {
-				console.log('API Access Authenticated!')
-				res.json('API Access Authenticated ... Goodbye!')
+				console.log('API test Access Authenticated!')
+				res.json('API test Access Authenticated ... Goodbye!')
 			}
 		}
 	}

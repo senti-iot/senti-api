@@ -1,6 +1,6 @@
 {
   "name": "senti-api",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "deprecated": false,
   "description": "Senti.Cloud API",
   "main": "server.js",
@@ -17,19 +17,27 @@
     "API",
     "NodeJS"
   ],
-  "author": "Christian Broberg",
+  "author": {
+    "name": "Christian Broberg",
+    "email": "apisupport@senti.cloud",
+    "url": "https://senti.cloud/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/senti-platform/senti-api/issues"
   },
   "homepage": "https://github.com/senti-platform/senti-api#readme",
   "dependencies": {
+    "@salling-group/auth": "^1.0.1",
     "apisauce": "^1.0.0",
     "cors": "^2.8.5",
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "find-config": "^1.0.0",
-    "helmet": "^3.14.0",
-    "senti-apicore": "0.0.8"
+    "helmet": "^3.15.0",
+    "senti-apicore": "0.0.11"
+  },
+  "devDependencies": {
+    "eslint-plugin-security": "^1.4.0"
   }
 }

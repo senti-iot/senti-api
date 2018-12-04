@@ -8,10 +8,11 @@ const app = express()
 // API endpoint imports
 const indexRouter = require('./api/index')
 const weatherRouter = require('./api/weather')
+const holidaysRouter = require('./api/holidays')
 const apiVersionRouter = require('./api/apiversion')
 const templateRouter = require('./api/template')
 
-const port = process.env.SENTI_API_PORT || 3001
+const port = process.env.NODE_PORT || 3001
 
 app.use(helmet())
 app.use(express.json())
@@ -21,6 +22,7 @@ app.use(cors())
 
 app.use('/', indexRouter)
 app.use('/weather', weatherRouter)
+app.use('/holidays', holidaysRouter)
 app.use('/apiversion', apiVersionRouter)
 app.use('/template', templateRouter)
 

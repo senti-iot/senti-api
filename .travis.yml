@@ -1,9 +1,10 @@
-# .travis.yml
+language: node_js
+node_js: 
+  - stable
 addons: 
   ssh_known_hosts: organa.webhouse.net
 install:
 - npm ci
-# keep the npm cache around to speed up installs
 cache:
   directories:
   - "$HOME/.npm"
@@ -12,24 +13,21 @@ before_deploy:
   - "eval \"$(ssh-agent -s)\""
   - "chmod 600 /tmp/deploy_rsa"
   - "ssh-add /tmp/deploy_rsa"
-deploy: 
-  - 
-    provider: script
-    script: "rsync -r --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api"
-    #script: "rsync -a --quiet $TRAVIS_BUILD_DIR/ deploy@organa.webhouse.net:/srv/nodejs/senti/senti-api"
+deploy:
+  - provider: script # DEV
+    script: bash scripts/deploy.sh dev $TRAVIS_BUILD_DIR
     skip_cleanup: true
-    true: 
+    on:
+      branch: dev
+  - provider: script # MASTER
+    script: bash scripts/deploy.sh master $TRAVIS_BUILD_DIR
+    skip_cleanup: true
+    on:
       branch: master
-
-after_deploy:
-  - "echo Now running npm install on host"
-  - "ssh deploy@organa.webhouse.net 'sudo npm install --prefix /srv/nodejs/senti/senti-api'"
-  - "echo Now restarting API service"
-  - "ssh deploy@organa.webhouse.net 'sudo /srv/nodejs/api-restart.sh'"
-
-language: node_js
-node_js: 
-  - stable
-notifications: 
-  email: true
+notifications:
+  email:
+    recipients:
+      - cb@webhouse.dk
+    on_success: never
+    on_failure: always
   slack: "webhouseteam:82qu1PX5R5wkYNCW5x6fVlhu"

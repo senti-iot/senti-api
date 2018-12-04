@@ -1,13 +1,13 @@
 [Unit]
-# senti-api.service
+# senti-api-dev.service
 Description=Senti API
 Documentation=https://github.com/senti-platform/senti-api/blob/master/README.md
 # After=network.target
 
 [Service]
-WorkingDirectory=/srv/nodejs/senti/senti-api
+WorkingDirectory=/srv/nodejs/senti/senti-api-dev
 ExecStart=/usr/bin/node server.js
-Environment=NODE_PORT=3001
+Environment=NODE_PORT=3002
 Type=simple
 Restart=always
 # RestartSec=1
