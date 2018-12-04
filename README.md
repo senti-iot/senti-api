@@ -59,3 +59,15 @@ Holidays API support Danish holidays in Danish and English.
 
 **API Route:**
 /:version/:startdate/:enddate/:lang
+
+## Annual Events
+
+**Date format: YYYY-MM-DD**
+- https://api.senti.cloud/annual/v1/2018-01-01/2018-12-31/da
+- https://api.senti.cloud/annual/v1/2018-01-01/2018-12-31/en
+
+**Language**
+Annual Events API support Danish special annual events in Danish and English.
+
+**API Route:**
+/:version/:startdate/:enddate/:lang

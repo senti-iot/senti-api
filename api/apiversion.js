@@ -7,6 +7,7 @@ const apiVersions = {
 	"index": "1",
 	"weather": "1",
 	"holidays": "1",
+	"annual": "1",
 	"template": "2",
 }
 
