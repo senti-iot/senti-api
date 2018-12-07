@@ -6,7 +6,7 @@
 	},
 	{
 		"date": "02-05",
-		"name": "Christian Broberg, Senti.Cloud",
+		"name": "Christian Broberg",
 		"birthday": true
 	},	
 	{
@@ -58,6 +58,11 @@
 		"date": "06-15",
 		"name": "Reunion day",
 		"birthday": false
+	},
+	{
+		"date": "10-13",
+		"name": "Senti 2.0",
+		"birthday": true
 	},
 	{
 		"date": "12-13",
