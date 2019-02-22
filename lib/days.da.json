@@ -5,6 +5,11 @@
 		"birthday": true
 	},
 	{
+		"date": "02-05",
+		"name": "Christian Broberg",
+		"birthday": true
+	},		
+	{
 		"date": "02-06",
 		"name": "Prinsesse Marie",
 		"birthday": true
@@ -33,6 +38,11 @@
 		"date": "05-05",
 		"name": "Danmarks befrielse",
 		"birthday": false
+	},
+	{
+		"date": "05-17",
+		"name": "Senti",
+		"birthday": true
 	},
 	{
 		"date": "05-26",

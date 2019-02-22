@@ -9,7 +9,7 @@ const { createInstance } = require('@salling-group/auth')
 const { HOLIDAYS_TOKEN } = process.env
 const holidaysRoute = '/:version/:startdate/:enddate/:lang'
 
-const numRetry = 5
+const numRetry = 2
 
 const instance = createInstance({
 	'applicationName': 'Senti.API',
