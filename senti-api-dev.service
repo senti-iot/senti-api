@@ -1,7 +1,7 @@
 [Unit]
 # senti-api-dev.service
 Description=Senti API
-Documentation=https://github.com/senti-platform/senti-api/blob/master/README.md
+Documentation=https://github.com/senti-iot/senti-api/blob/master/README.md
 # After=network.target
 
 [Service]

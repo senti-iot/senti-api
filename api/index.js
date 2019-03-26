@@ -3,7 +3,7 @@ const router = express.Router()
 
 // Index route
 router.get('/', (req, res, next) => {
-	res.redirect('https://github.com/senti-platform/senti-api')
+	res.redirect('https://github.com/senti-iot/senti-api')
 	console.log('API root call received!')
 })
 
