@@ -1,8 +1,12 @@
 language: node_js
 node_js: 
   - stable
+
 addons: 
-  ssh_known_hosts: organa.webhouse.net
+  ssh_known_hosts: 
+    - organa.webhouse.net
+    - rey.webhouse.net
+
 install:
 - npm ci
 cache:
