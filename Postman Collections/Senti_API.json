@@ -1,7 +1,7 @@
 {
   "info": {
     "_postman_id": "bb742bf9-260c-4fa4-b47c-e1916fa83975",
-    "name": "Senti API",
+    "name": "Senti.API",
     "description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
@@ -144,6 +144,28 @@
         "description": "Holidays"
       },
       "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "569e7376-cd41-400a-a3da-850de370a3ab",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "97a36d8b-1750-45f5-9007-f689ad730109",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
     }
   ]
 }
