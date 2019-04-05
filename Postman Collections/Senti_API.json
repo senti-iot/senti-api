@@ -1,0 +1,149 @@
+{
+  "info": {
+    "_postman_id": "bb742bf9-260c-4fa4-b47c-e1916fa83975",
+    "name": "Senti API",
+    "description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Weather DA PROD",
+      "_postman_id": "edb5268d-65d0-4986-8734-352a09f2ae1c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1",
+            "type": "text"
+          }
+        ],
+        "url": "https://api.senti.cloud/weather/v1/2018-05-11T00:00:00/57.0488/9.9217/da"
+      },
+      "response": []
+    },
+    {
+      "name": "Holidays DA DEV",
+      "_postman_id": "13b58382-eab9-4065-b396-5d746202f97c",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1",
+            "type": "text"
+          }
+        ],
+        "url": "https://dev.api.senti.cloud/holidays/v1/2018-01-01/2018-12-31/da",
+        "description": "Holidays"
+      },
+      "response": []
+    },
+    {
+      "name": "Annual DA DEV",
+      "_postman_id": "014bc087-5d41-48d9-979b-0d10c9417830",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "type": "text",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1"
+          }
+        ],
+        "url": "https://dev.api.senti.cloud/annual/v1/2018-01-01/2018-12-31/da",
+        "description": "Holidays"
+      },
+      "response": []
+    },
+    {
+      "name": "Annual DA PROD",
+      "_postman_id": "ea2cc5d7-8e6f-499c-9573-24c671c28323",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "type": "text",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1"
+          }
+        ],
+        "url": "https://api.senti.cloud/annual/v1/2018-01-01/2018-12-31/da",
+        "description": "Holidays"
+      },
+      "response": []
+    },
+    {
+      "name": "Annual DA Local",
+      "_postman_id": "3a193169-b1fa-4012-a6e8-2258c7c25b0e",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "type": "text",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1"
+          }
+        ],
+        "url": "http://localhost:3001/annual/v1/2018-01-01/2018-12-31/da",
+        "description": "Holidays"
+      },
+      "response": []
+    },
+    {
+      "name": "Holidays EN",
+      "_postman_id": "645aba11-8db4-456a-8328-45ea7d341db0",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "type": "text",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1"
+          }
+        ],
+        "url": "https://dev.api.senti.cloud/holidays/v1/2018-01-01/2018-12-31/en",
+        "description": "Holidays"
+      },
+      "response": []
+    },
+    {
+      "name": "Holidays DA PROD",
+      "_postman_id": "bc9b872e-4786-4960-ac0b-852d9a751d6f",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "auth",
+            "type": "text",
+            "value": "85c5d95e51ee63c68109eceafcca1ea3:641708ce17f91fe38af0c220825c62302dad88a1fd0b1c3e9302b2612eb629c52d4773403f4a6900bb5e76023de545d1"
+          }
+        ],
+        "url": "https://api.senti.cloud/holidays/v1/2018-01-01/2018-12-31/da",
+        "description": "Holidays"
+      },
+      "response": []
+    }
+  ]
+}
