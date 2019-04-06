@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "bb742bf9-260c-4fa4-b47c-e1916fa83975",
     "name": "Senti.API",
-    "description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+    "description": "# About Senti.API\nSenti.API allows you to build your own IoT Dashboards, Apps and Widgets based on the Senti Services infrastructure. \n\nSenti.API support access to your Senti IoT device data or paid API access to Senti Big Data based upon the crowd-sourced anonymised pool of Senti data.\n\nSenti.API also works as a consolidated proxy for other API endpoints that is a core part of the Senti Services infrastructure.\n\nAPI version: 1.0\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
