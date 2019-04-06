@@ -1,0 +1,32 @@
+#!/bin/bash
+
+clear
+
+service_name=senti-api-dev.service
+service_dir=/etc/systemd/system
+server_dir=/srv/nodejs/senti/senti-api-dev
+
+service=$service_dir/$service_name
+
+echo Registering Senti API service for development ...
+
+
+if [ ! -e "$service" ]; then
+	echo
+    echo "Senti API service is not installed"
+	echo "Installing Senti API service ..."
+	sudo cp $server_dir/$service_name $service_dir/$service_name
+	echo "Enabling $service ..."
+	sudo systemctl enable $service_name
+	sudo systemctl daemon-reload
+	echo "Starting $service ..."
+	sudo systemctl start $service_name
+else 
+    echo "Senti API service is already installed"
+	echo "Enabling $service ..."
+	sudo systemctl enable $service_name
+	sudo systemctl daemon-reload
+	echo "Starting $service ..."
+	sudo systemctl stop $service_name
+	sudo systemctl start $service_name
+fi 

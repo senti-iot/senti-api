@@ -8,6 +8,7 @@ Documentation=https://github.com/senti-iot/senti-api/blob/master/README.md
 WorkingDirectory=/srv/nodejs/senti/senti-api
 ExecStart=/usr/bin/node server.js
 Environment=NODE_PORT=3001
+Environment=NODE_ENV=production
 Type=simple
 Restart=always
 # RestartSec=1

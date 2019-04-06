@@ -8,7 +8,7 @@ server_dir=/srv/nodejs/senti/senti-api
 
 service=$service_dir/$service_name
 
-echo Registering Senti API service ...
+echo Registering Senti API service for production ...
 
 
 if [ ! -e "$service" ]; then
