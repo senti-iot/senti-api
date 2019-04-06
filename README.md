@@ -1,10 +1,10 @@
 # Senti.API
 
-Senti.Cloud API (Senti.API) allows you to build your own IoT Dashboards, Apps and Widgets. 
+Senti.API allows you to build your own IoT Dashboards, Apps and Widgets based on the Senti Services infrastructure. 
 
-Senti.API support access to your Senti IoT device data or paid access to Senti Big Data based upon the crowd-sourced anonymised pool of Senti data.
+Senti.API support access to your Senti IoT device data or paid API access to Senti Big Data based upon the crowd-sourced anonymised pool of Senti data.
 
-Senti.API also works as a consolidated proxy for other API endpoints that Senti and Senti.Cloud use for its services.
+Senti.API also works as a consolidated proxy for other API endpoints that is a core part of the Senti Services infrastructure.
 
 API version: 1.0
 
