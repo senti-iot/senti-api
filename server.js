@@ -12,6 +12,7 @@ const holidaysRouter = require('./api/holidays')
 const annualRouter = require('./api/annual')
 const apiVersionRouter = require('./api/apiversion')
 const templateRouter = require('./api/template')
+const sigfoxRouter = require('./api/sigfox')
 
 const port = process.env.NODE_PORT || 3001
 
@@ -27,7 +28,7 @@ app.use('/holidays', holidaysRouter)
 app.use('/annual', annualRouter)
 app.use('/apiversion', apiVersionRouter)
 app.use('/template', templateRouter)
-
+app.use('/sigfox', sigfoxRouter)
 //---Start the express server---------------------------------------------------
 
 const startAPIServer = () => {

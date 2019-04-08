@@ -9,6 +9,7 @@ const apiVersions = {
 	"holidays": "1",
 	"annual": "1",
 	"template": "2",
+	"sigfox": "1"
 }
 
 /* GET template */
