@@ -1,6 +1,6 @@
 {
   "name": "senti-api",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "deprecated": false,
   "description": "Senti.Cloud API",
   "main": "server.js",
